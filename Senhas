@@ -1,0 +1,21 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class GeradorSenha {
+    public static void main(String[] args) {
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
+        SecureRandom random = new SecureRandom();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o número de caracteres da senha:");
+        int tamanho = scanner.nextInt();
+
+        StringBuilder senha = new StringBuilder(tamanho);
+        for (int i = 0; i < tamanho; i++) {
+            int index = random.nextInt(caracteres.length());
+            senha.append(caracteres.charAt(index));
+        }
+
+        System.out.println("Senha gerada: " + senha.toString());
+    }
+}
